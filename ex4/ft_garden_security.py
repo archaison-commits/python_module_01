@@ -2,34 +2,55 @@
 
 class Plant:
     def __init__(self, name, height, age):
-        self.name = name.capitalize()
-        self.set_height(height)
-        self.set_age(age)
-
-    def set_height(self, height):
-        self.height = 25.0
-        if height < 0:
-            return print("Error, height can't be negative")
-
-    def set_age(self, age):
-        self.age = 30
+        self._name = name.capitalize()
+        if height < 0 :
+            print(f"{self._name}: Error, height can't be negative")
+            self._height = 0
+        else:
+            self._height = height
         if age < 0:
-            return print("Error, age can't be negative")
+            print(f"{self._name}: Error, age can't be negative")
+            self._age = 0
+        else:
+            self._age = age
 
-    def get_age() -> int:
-        return 
-            
+    def get_height(self) -> float:
+        return self._height
+
+    def get_age(self) -> int:
+        return self._age
+
+    def set_height(self, height) -> None:
+        if height < 0:
+            print(f"{self._name}: Error, height can't be negative")
+            print("Height update rejected")
+            return
+        self._height = height
+        print(f"Height updated: {self._height}cm")
+
+    def set_age(self, age) -> None:
+        if age < 0:
+            print(f"{self._name}: Error, age can't be negative")
+            print("Age update rejected")
+            return
+        self._age = age
+        print(f"Age updated: {self._age} days")
+
     def show(self) -> None:
-        h = round(self.height, 1)
-        print(f"Height Updated: {round(self.height, 1)}cm")
-        print(f"Age Updated: {round(self.age, 1)} days")
+        print(f"Current state: {self._name}: {round(self._height, 1)}cm, {self._age} days old")
 
 
 if __name__ == "__main__":
-    print("=== Plant Factory Output ===")
+    print("=== Garden Security System ===")
     in_name = "rose"
     in_height = 15.0
     in_age = 10
-    print(f"Plant created: {in_name}, {in_height}cm, {in_age} days old")
     rose = Plant(in_name, in_height, in_age)
+    print(f"Plant created: {in_name.capitalize()}, {in_height}cm, {in_age} days old\n")
+    rose.set_height(25)
+    rose.set_age(30)
+    print("")
+    rose.set_height(-5)
+    rose.set_age(-20)
+    print("")
     rose.show()
