@@ -7,8 +7,8 @@ class Plant:
         self.age = age
 
     def show(self) -> None:
-        h = round(self.height, 1)
-        print(f"Created: {self.name.capitalize()}, {h}cm, {self.age} days old")
+        print(f"Created: {self.name.capitalize()}, {round(self.height, 1)}cm,"
+              f"{self.age} days old")
 
 
 if __name__ == "__main__":

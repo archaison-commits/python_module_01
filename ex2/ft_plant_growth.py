@@ -6,7 +6,7 @@ class Plant:
         self.height = height
         self.age = age
 
-    def grow(self):
+    def grow(self) -> None:
         print(f"{self.name.capitalize()}: "
               f"{self.height}cm, {self.age} days old")
         for i in range(7):
