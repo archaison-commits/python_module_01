@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 
 class Plant:
-    def __init__(self, name, height, age):
-        self.name = name.capitalize()
-        self.height = height
-        self.age = age
+    def __init__(self, name: str, height: float, age: int) -> None:
+        self.name: str = name.capitalize()
+        self.height: float = height
+        self.age: int = age
 
     def grow(self) -> None:
         print(f"{self.name.capitalize()}: "
@@ -14,7 +14,7 @@ class Plant:
             self.age += 1
             self.show(i)
 
-    def show(self, i):
+    def show(self, i: int) -> None:
         print(f"=== Day {i+1} ===")
         print(f"{self.name}: "
               f"{round(self.height, 1)}cm, {self.age} days old")
